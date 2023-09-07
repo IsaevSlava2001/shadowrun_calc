@@ -12,7 +12,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -72,6 +71,8 @@ CREATE TABLE `Weapons` (
 INSERT INTO `Weapons` (`id`, `Name`, `Damage`, `Type`, `Accuracy`, `AP`, `Category`, `IsMelee`) VALUES
 (1, 'Ares Alpha', 11, 1, 5, -2, 1, 0);
 
+-- --------------------------------------------------------
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -89,6 +90,8 @@ ALTER TABLE `Weapons`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Weapons_fk0` (`Category`);
 
+-- --------------------------------------------------------
+
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
@@ -105,6 +108,9 @@ ALTER TABLE `Category`
 ALTER TABLE `Weapons`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
+
+-- --------------------------------------------------------
+
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
@@ -115,6 +121,8 @@ ALTER TABLE `Weapons`
 ALTER TABLE `Weapons`
   ADD CONSTRAINT `Weapons_fk0` FOREIGN KEY (`Category`) REFERENCES `Category` (`id`);
 COMMIT;
+
+-- --------------------------------------------------------
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
