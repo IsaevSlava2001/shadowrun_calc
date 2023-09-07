@@ -1,4 +1,10 @@
-.auto-style1
+.base
 {
     text-align: center;
+    padding: 2px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: rgba(243, 236, 44, 0.443);
 }
+
