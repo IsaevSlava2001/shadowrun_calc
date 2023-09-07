@@ -1,3 +1,4 @@
+<!-- Параметры подключения к БД -->
 <?php
     $host = 'localhost';
     $database = 'q91976m8_calc';
