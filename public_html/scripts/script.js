@@ -1,22 +1,30 @@
-$(document).ready(function(){
+$(document).ready(function()
+{
+    
     function getRandomInt(max)
     {
     return Math.floor(Math.random() * max);
     }
-    $("#updweapon").on('input', function()
+
+
+    // Обработка событий с идентификатором «updweapon»
+    $("#updweapon").on('input', function() 
     {
         var weapon=$(this).val();
         var xhr=new XMLHttpRequest();
+
+        // Запрос на запуск скрипта select_weapon.php
         xhr.open("GET","./back/select_weapon.php?weapon="+weapon,true);
         xhr.send();
         xhr.onreadystatechange=function()
         {
-            if(xhr.readyState!=4)
+            if(xhr.readyState!=4) // Если произошла ошибка
             {
                 return;
             }
-            if(xhr.status==200)
+            if(xhr.status==200) // Если запрос успешен
             {
+                // Если оружие найдено, ответ, полученный из скрипта select_weapon.php записывается в консоль и распределяется по содержимому HTML тегов
                 if(xhr.responseText!="no such weapon")
                 {
                     console.log(xhr.responseText);
@@ -38,6 +46,7 @@ $(document).ready(function(){
                     $("#Label2").text(stats[3]);
                     $("#Label4").text(stats[2]);
                     $('#type').text(stats[4]);
+
                     if(parseInt(stats[1])==1)
                     {
                         $("#Label11").text("phys");
@@ -49,22 +58,26 @@ $(document).ready(function(){
                 }
             }
         }
-    });  
+    });
+
+
     $("#updcat").on('input', function()
     {
         var categ=$(this).val();
         var xhr=new XMLHttpRequest();
+
+        // Запрос на запуск скрипта update_weapon.php
         xhr.open("GET","./back/update_weapon.php?categ="+categ,true);
         xhr.send();
         xhr.onreadystatechange=function()
         {
-            if(xhr.readyState!=4)
+            if(xhr.readyState!=4) // Если произошла ошибка
             {
                 return;
             }
-            if(xhr.status==200)
+            if(xhr.status==200)  // Если запрос успешен
             {
-                if(xhr.responseText!="no such weapon"&& xhr.responseText!="")
+                if(xhr.responseText!="no such weapon" && xhr.responseText!="")
                 {
                     weapon = xhr.responseText.split('"');
                     let weapons = ["--Please choose an option--"];
@@ -107,6 +120,8 @@ $(document).ready(function(){
             }
         }
     });
+
+
     $("#atackcount").click(function()
     {
         var u = document.getElementsByName('Text2')[0].value;
@@ -172,6 +187,8 @@ $(document).ready(function(){
             }
         }
     })
+
+
     $("#dodgecount").click(function()
     {
         var u = document.getElementsByName('Text3')[0].value;
@@ -223,6 +240,8 @@ $(document).ready(function(){
             document.getElementById("Label5").innerText=sum;
         }
     })
+
+
     $("#resistcount").click(function()
     {
         if(document.getElementById("Label2").textContent=="")
@@ -281,6 +300,8 @@ $(document).ready(function(){
             }
         }
     })
+
+
     $("#countdamage").click(function()
     {
         errmsg = "";
@@ -319,4 +340,6 @@ $(document).ready(function(){
             alert(errmsg);
         }
     })
+
+
 })
