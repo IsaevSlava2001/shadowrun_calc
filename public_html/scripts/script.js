@@ -1,3 +1,4 @@
+// Главная функция jquery
 $(document).ready(function()
 {
     
