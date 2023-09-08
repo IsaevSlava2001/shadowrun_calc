@@ -1,10 +1,17 @@
 .base
 {
     text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px #00000099;
+    
     padding: 2px;
     border: 1px solid;
     border-radius: 5px;
     margin: 5px;
-    background-color: rgba(243, 236, 44, 0.443);
+
+    background-color: #f3ec2c71;
+    box-shadow: 3px 3px 3px #00000077;
 }
 
